@@ -1,16 +1,12 @@
-# 自分用 ~/.emacs.d
+# 自分用(Windows) ~/.emacs.d
 
-* 修正中 & 未確認 (´・_・`)
+* 修正中 & 未確認
 
 * 修正して使うこと.
 
 * READMEですがメモです.
 
-* Linux Mint用
-
-## スクリーンショット
-
-<img src="img/img_init.png" width="320" hspace="10"><img src="img/img_use.png" width="320" hspace="10">
+* Windows向けの軽量設定
 
 ## ~/.emacs.d/configディレクトリ以下構成
 
@@ -41,12 +37,6 @@ $ mv emacs.d ~/.emacs.d
 
 ```
 M-x package-install use-package
-```
-
-### 要fortune, cowsay, w3mコマンド
-
-```
-$ sudo apt-get install fortune cowsay w3m
 ```
 
 ## elpaからpackage-install
