@@ -1,0 +1,59 @@
+# 自分用 ~/.emacs.d
+
+* 修正中 & 未確認 (´・_・`)
+
+* 修正して使うこと.
+
+* READMEですがメモです.
+
+* Linux Mint用
+
+## スクリーンショット
+
+<img src="img/img_init.png" width="320" hspace="10"><img src="img/img_use.png" width="320" hspace="10">
+
+## ~/.emacs.d/configディレクトリ以下構成
+
+### elispファイル構成
+
+|*.el file|設定|
+|:-------------|:------------------------------------------------------|
+| config-utils | configファイル用のユーティリティ |
+| package-conf | 外部パッケージの設定項目(要外部package) |
+| builtin-conf | emacsデフォルト(外部package不要)の設定項目 |
+| appearance-conf | bizzに引続き、emacsデフォルトの外見設定 |
+| common-lang-conf | 言語共通設定 or 複数言語に共通する設定(要外部package) |
+| language-conf | 各言語ごとの設定 |
+| external-eslip | 外部から持ち込んだコード等 |
+| internal-eslip | 自作コード |
+| key-binding | Globalなキーバインドはここに一括 |
+
+## 設定
+
+```
+$ git clone https://github.com/yuwki0131/emacs.d
+$ mv emacs.d ~/.emacs.d
+```
+
+### 要use-package
+
+* 自動で入れられない(?)ため
+
+```
+M-x package-install use-package
+```
+
+### 要fortune, cowsay, w3mコマンド
+
+```
+$ sudo apt-get install fortune cowsay w3m
+```
+
+## elpaからpackage-install
+
+初期化するとエラーレポートが出るので、ielm等で以下を実行。
+不足しているelpaの最新版パッケージがインストールされる。
+
+```
+(load "~/.emacs.d/install-scenario.el")
+```
