@@ -1,16 +1,12 @@
-# 自分用 ~/.emacs.d
+# 自分用(Windows) ~/.emacs.d
 
-* 修正中 & 未確認 (´・_・`)
+* 修正中 & 未確認
 
 * 修正して使うこと.
 
 * READMEですがメモです.
 
-* Linux Mint用
-
-## スクリーンショット
-
-<img src="img/img_init.png" width="320" hspace="10"><img src="img/img_use.png" width="320" hspace="10">
+* Windows向けの軽量設定
 
 ## ~/.emacs.d/configディレクトリ以下構成
 
@@ -41,12 +37,6 @@ $ mv emacs.d ~/.emacs.d
 
 ```
 M-x package-install use-package
-```
-
-### 要fortune, cowsay, w3mコマンド
-
-```
-$ sudo apt-get install fortune cowsay w3m
 ```
 
 ## elpaからpackage-install
@@ -126,20 +116,14 @@ $ sudo apt-get install fortune cowsay w3m
 |機能|表示|C-z c|hide/show-comments-toggle|コメント表示/非表示|
 |機能|辞書|C-z C-d|search-dictionary-e2j-current-word|現在の単語の意味を表示(要辞書設定)|
 |機能|辞書|C-z d|search-dictionary-e2j|英和辞典(要辞書設定)|
-|機能|実行|C-z e|execute-current-shell-script|現在のディレクトリのxxx.sh実行|
-|機能|ブログ|C-z b n|quickblog-create-new-post|新しいブログポストを作成|
-|機能|ブログ|C-z b o|quickblog-open-default-file|既存のCryogen下のブログポスト一覧を表示|
-|機能|ブログ|C-z b r|quickblog-run-local-server|Cryogenをローカルで実行|
 |編集||C-a C-a|comment-dwim|comment out/in|
 |編集||C-a C-u|upcase-word|upcase/downcase word|
 |編集||C-a C-p|downcase-word|upcase/downcase word|
 |編集|削除|C-a C-c|kill-until-corresp-paren|括弧削除|
 |編集|削除|C-a C-k|kill-this-buffer|現在のバッファを削除|
 |編集|削除|C-a C-h|backward-kill-word|後ろ向きな単語削除|
-|編集|削除|C-a C-f|merge2lines|行のマージ(インデント用などの空白削除) <br/> (不要かも)|
 |編集|削除|C-a C-i|just-one-space|周囲の空白を削除し、単一の空白にする|
 |編集|挿入|C-a C-q|quoted-insert|旧(C-q) 引用付き挿入(置換等に使用)|
-|編集|挿入|C-a C-s|insert-shoborn|(´・_・`)を挿入|
 |編集|挿入|C-a C-d|insert-date-normal|現在時刻挿入|
 |編集|挿入|C-a M-d|insert-date-markdown|現在時刻挿入|
 |編集|挿入|C-a C-e|insert-current-file-name|現在のファイルパスを挿入|

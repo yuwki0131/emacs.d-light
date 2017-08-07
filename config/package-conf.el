@@ -19,7 +19,7 @@
 (use-package-with-report magit)
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : magit : emacs git client
+;;; package-func : exec path config : exec-path-from-shell
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report exec-path-from-shell
   :config
@@ -65,21 +65,9 @@
 	    "/search?q=%s&hl=ja&num=100&as_qdr=y5&lr=lang_ja")))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-func : w3m : w3m in emacs
-;;; ---------------------------------------------------------------------------
-(use-package-with-report w3m
-  :config
-  (setq w3m-command "w3m"))
-
-;;; ---------------------------------------------------------------------------
 ;;; package-func : auto async byte compile : emacsのバイトコンパイルの自動化
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report auto-async-byte-compile)
-
-;;; ---------------------------------------------------------------------------
-;;; package-func : tiny menu : tiny menu
-;;; ---------------------------------------------------------------------------
-(use-package-with-report tiny-menu)
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : imenu list : 関数定義を横に表示
@@ -109,30 +97,6 @@
 (use-package-with-report open-junk-file
   :config
   (setq open-junk-file-format "~/.emacs.d/junk/%Y-%m-%d-%H%M%S."))
-
-;;; ---------------------------------------------------------------------------
-;;; package-func : twittering mode : ついった
-;;; ---------------------------------------------------------------------------
-(use-package-with-report twittering-mode
-  :config
-  (setq twittering-use-master-password t)
-  ;; 更新頻度(sec)
-  (setq twittering-timer-interval 30)
-  ;; 単位時間あたりのツイート取得数
-  (setq twittering-number-of-tweets-on-retrieval 50)
-  ;; アイコン表示
-  (setq twittering-icon-mode t)
-  ;; 表示形式
-  (setq twittering-status-format "%i @%s %S %p: \n %T
-──────────────────────────────────────────────────────────────────────────"))
-
-;;; ---------------------------------------------------------------------------
-;;; package-func : markdown preview mode : markdown preview
-;;; ---------------------------------------------------------------------------
-;; required apt-get install markdown
-(use-package-with-report markdown-preview-mode
-  :config
-  (setq markdown-command "/usr/bin/marked"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-func : codic : j2e/e2j dictionary
@@ -248,26 +212,6 @@
   (fancy-narrow-mode 1))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-app : にゃーん
-;;; ---------------------------------------------------------------------------
-;; original : https://www.youtube.com/watch?v=QH2-TGUlwu4
-(use-package-with-report nyan-mode
-  :config
-  (nyan-mode)
-  (nyan-start-animation))
-
-;;; ---------------------------------------------------------------------------
-;;; package-app : echo bell : from beep to echo
-;;; ---------------------------------------------------------------------------
-;; original : https://www.youtube.com/watch?v=QH2-TGUlwu4
-(use-package-with-report echo-bell
-  :config
-  (setq echo-bell-string "(´・_・｀)")
-  (setq echo-bell-background "lightpink")
-  (setq echo-bell-delay 0.4)
-  (echo-bell-mode 1))
-
-;;; ---------------------------------------------------------------------------
 ;;; package-app : nlinum-mode : 軽量化された行番号表示
 ;;; ---------------------------------------------------------------------------
 ;; 標準は重いので使用しない
@@ -284,25 +228,6 @@
   :config
   (toggle-hl-line-when-idle)
   (setq hl-line-idle-interval 3))
-
-;;; ---------------------------------------------------------------------------
-;;; package-app : column highlight line plus : カーソル桁ハイライト
-;;; ---------------------------------------------------------------------------
-(use-package-with-report col-highlight
-  :disabled t
-  :config
-  (toggle-highlight-column-when-idle 1)
-  (col-highlight-set-interval 3)
-  (column-highlight-mode nil))
-
-;;; ---------------------------------------------------------------------------
-;;; package-app : highlight current-buffer : 現在のバッファをハイライト
-;;; ---------------------------------------------------------------------------
-(use-package-with-report hiwin
-  :disabled t
-  :config
-  (hiwin-activate)
-  (set-face-background 'hiwin-face "#D0D0D0"))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : hl-todo-mode : TODOをハイライト
@@ -331,26 +256,11 @@
   (volatile-highlights-mode t))
 
 ;;; ---------------------------------------------------------------------------
-;;; package-app : beacon : bufferを移動時にハイライト
-;;; ---------------------------------------------------------------------------
-(use-package-with-report beacon
-  :config
-  (beacon-mode 1))
-
-;;; ---------------------------------------------------------------------------
 ;;; package-app : highlight symbol : カーソル位置のシンボルの自動ハイライト
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report highlight-symbol
   :config
   (add-hook 'prog-mode-hook 'highlight-symbol-mode))
-
-;;; ---------------------------------------------------------------------------
-;;; package-app : highlight block : 現在のブロックをハイライト
-;;; ---------------------------------------------------------------------------
-(use-package-with-report highlight-blocks
-  :disabled
-  :config
-  (add-hook 'prog-mode-hook '(lambda () (highlight-blocks-mode 1))))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-app : rainbow delimiters : 対応括弧ハイライト
@@ -467,13 +377,6 @@
   :diminish disable-mouse-mode
   :config
   (global-disable-mouse-mode))
-
-;;; ---------------------------------------------------------------------------
-;;; package-config : exec path from shell : シェルのpath設定引き継ぎ
-;;; ---------------------------------------------------------------------------
-(use-package-with-report exec-path-from-shell
-  :config
-  (exec-path-from-shell-initialize))
 
 ;;; ---------------------------------------------------------------------------
 ;;; package-report : esup : emacs起動時間の計測

@@ -96,10 +96,6 @@
 (set-face-fore-with-cbi 'font-lock-constant-face      color/deeppink   t   nil)
 (set-face-fore-with-cbi 'font-lock-warning-face       color/deeppink   nil t)
 
-;; coloring program (extension)
-;; (set-face-fore-with-cbi 'highlight-numbers-number     color/deeppink   nil nil)
-;; (set-face-fore-with-cbi 'highlight-operators-face     color/limegreen  nil nil)
-
 ;; coloring property
 (ignore-errors
   (set-face-fore-with-cbi 'info-header-xref             color/darkcyan   nil t)
@@ -175,10 +171,6 @@
 
 ;; 行番号フォーマット
 (setq linum-format " %4d")
-
-;; 画面サイズ初期化
-(setq initial-frame-alist
-      '((top . 20) (left . 0) (width . 128) (height . 75)  (alpha . (97 85))))
 
 ;;;---------------------------------------------------------------------------
 ;;; provide

@@ -246,12 +246,7 @@
       (next-buffer))))
 
 (defun match-repl-pattern? (buffer-name)
-  (or (string= "*haskell*" buffer-name)
-      (string= "*cider-repl localhost*" buffer-name)
-      (string= "*Racket REPL*" buffer-name)
-      (string= "*scheme*" buffer-name)
-      (string= "*ielm*" buffer-name)
-      (string= "*inferior-lisp*" buffer-name)
+  (or (string= "*ielm*" buffer-name)
       (string= "*Python*" buffer-name)
       (string= "*Python3*" buffer-name)
       (string= "*scratch*" buffer-name)
@@ -396,7 +391,7 @@
 ;;; zero sec notes
 ;;; ---------------------------------------------------------------------------
 (defvar zsnotes-default-directory
-  "~/Dropbox/docs/zsnotes")
+  "~/Desktop/zsnotes")
 
 (defun zsnotes-open-today-note ()
   (interactive)
@@ -408,44 +403,13 @@
 ;;; zero sec notes
 ;;; ---------------------------------------------------------------------------
 (defvar zsnotes-default-directory
-  "~/Dropbox/docs/zsnotes")
+  "~/Desktop/zsnotes")
 
 (defun zsnotes-open-today-note ()
   (interactive)
   (let* ((today (format-time-string "%Y-%m-%d" (current-time)))
          (file-name (concat zsnotes-default-directory "/zs-notes-" today ".txt")))
     (find-file file-name)))
-
-;;; ---------------------------------------------------------------------------
-;;; quickblog on Cryogen
-;;; ---------------------------------------------------------------------------
-(defvar quickblog-project-root
-  "~/Dropbox/langs/lisps/clj/blog/yuwki0132-blog")
-
-(defvar quickblog-post-prefix
-  "~/Dropbox/langs/lisps/clj/blog/yuwki0132-blog/resources/templates/md/posts/")
-
-(defvar quickblog-blog-content-prefix
-  "{:title \"\"
- :layout :post
- :tags  []
- :toc true}\n\n")
-
-(defun quickblog-create-new-post ()
-  (interactive)
-  (let* ((today (format-time-string "%Y-%m-%d" (current-time)))
-         (en-title (read-from-minibuffer "blog title(en) :"))
-         (file-name (concat quickblog-post-prefix today "-" en-title ".md")))
-    (find-file file-name)
-    (insert quickblog-blog-content-prefix)))
-
-(defun quickblog-open-default-file ()
-  (interactive)
-  (find-file quickblog-post-prefix))
-
-(defun quickblog-run-local-server ()
-  (interactive)
-  (async-shell-command (concat "cd " quickblog-project-root "; lein ring server")))
 
 ;;; ---------------------------------------------------------------------------
 ;;; provide

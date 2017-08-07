@@ -1,87 +1,16 @@
 ;;; package --- language-conf.el (specific settings for languages)
 ;;; Commentary:
 ;;;  言語設定 / language-conf.el
-;;;  Lisp
-;;;  - Gauche/Scheme
-;;;  - Racket/Scheme
-;;;  - Guile/Scheme
-;;;  - SBCL/CommonLisp
-;;;  - Clojure
-;;;  - Hylang
 ;;;  Functional Programming Languages
 ;;;  - Scala
 ;;;  - Haskell
-;;;  - OCaml
-;;;  - SML
-;;;  - Erlang
 ;;;  Lightweight Languages
-;;;  - Lua
 ;;;  - Python
 ;;;  Procedual Programming Languages
 ;;;  - nothing
 ;;;  Other Languages
-;;;  - Prolog
-;;;  - Vimrc
 ;;;  - Web
 ;;; Code:
-
-;;; --------------------------------------------------------------------------------
-;;; config : Lisp dialects
-;;; --------------------------------------------------------------------------------
-
-;;; ---------------------------------------------------------------------------
-;;; Gauche/Scheme (checked)
-;;; ---------------------------------------------------------------------------
-(setq scheme-program-name "/usr/bin/gosh")
-
-;;; ---------------------------------------------------------------------------
-;;; racket-mode : Racket/Scheme (checked)
-;;; ---------------------------------------------------------------------------
-(use-package-with-report racket-mode
-  :mode (("\\.rkt$" . racket-mode))
-  :config
-  (defun my-racket-mode ()
-    (define-key racket-mode-map (kbd "C-c r") 'racket-run))
-  (add-hook 'racket-mode-hook 'my-racket-mode))
-
-;;; ---------------------------------------------------------------------------
-;;; geiser-mode : Guile/Scheme (checked)
-;;; ---------------------------------------------------------------------------
-(use-package-with-report geiser
-  :config
-  (setq geiser-active-implementations '(guile)))
-
-;;; ---------------------------------------------------------------------------
-;;; Common Lisp (SBCL/SLIME)の設定 (checked)
-;;; ---------------------------------------------------------------------------
-(setq inferior-lisp-program "/usr/bin/sbcl")
-
-(use-package-with-report slime
-  :config
-  (setq slime-contribs '(slime-fancy))
-  (slime-setup '(slime-repl slime-fancy slime-banner slime-indentation)))
-
-(use-package-with-report ac-slime
-  :config
-  (add-hook 'slime-mode-hook 'set-up-slime-ac)
-  (add-hook 'slime-repl-mode-hook 'set-up-slime-ac))
-
-;;; ---------------------------------------------------------------------------
-;;; clojure-mode : Clojure (unchecked)
-;;; ---------------------------------------------------------------------------
-(use-package-with-report clojure-mode)
-(use-package-with-report clj-refactor
-  :config
-  (defun my-clojure-mode-hook ()
-    (clj-refactor-mode 1)
-    (yas-minor-mode 1)
-    (cljr-add-keybindings-with-prefix "C-c C-m"))
-  (add-hook 'clojure-mode-hook 'my-clojure-mode-hook))
-
-;;; ---------------------------------------------------------------------------
-;;; hy-mode : Hylang (checked)
-;;; ---------------------------------------------------------------------------
-(use-package-with-report hy-mode)
 
 ;;; --------------------------------------------------------------------------------
 ;;; config : Functional programming languages
@@ -113,50 +42,9 @@
    :mode (("\\.cabal$" . haskell-cabal-mode)))
  (setq haskell-font-lock-symbols t))
 
-;;; ---------------------------------------------------------------------------
-;;; taureg-mode ocaml : OCaml (unchecked)
-;;; ---------------------------------------------------------------------------
-(ignore-require-with-report
- "failed to load taureg-mode & others ... (OCaml)"
- (use-package taureg-mode
-   :mode (("\\.ml[iylp]?" . tuareg-mode)))
- (use-package taureg-mode-run-ocaml)
- (use-package ocamldebug))
-
-;;; ---------------------------------------------------------------------------
-;;; sml-mode : SML (checked)
-;;; ---------------------------------------------------------------------------
-;; 設定はSML/NJ
-(use-package-with-report sml-mode
-  :config
-  (setq sml-program-name "sml"))
-
-;;; ---------------------------------------------------------------------------
-;;; erlang-mode : Erlang (unchecked)
-;;; ---------------------------------------------------------------------------
-;; erlangのinstall pathを指定 (設定場所が微妙)
-(ignore-require-with-report
- "failed tot load taureg-start & others ... (Erlang)"
- (add-to-list 'load-path "/usr/lib/erlang/lib/tools-2.8.3/emacs")
- (setq erlang-root-dir "/usr/local/otp")
- (setq exec-path (cons "/usr/local/otp" exec-path))
- (use-package erlang-start)
- (use-package erlang-flymake))
-
 ;;; --------------------------------------------------------------------------------
 ;;; config : LL
 ;;; --------------------------------------------------------------------------------
-
-;;; ---------------------------------------------------------------------------
-;;; lua-mode : Lua (checked)
-;;; ---------------------------------------------------------------------------
-;; luaのinstall pathを指定
-(add-to-list 'load-path "/path/to/directory/where/lua-mode-el/resides")
-(use-package-with-report lua-mode
-  :mode
-  (("\\.lua$" . lua-mode))
-  :interpreter
-  (("lua" . lua-mode)))
 
 ;;; ---------------------------------------------------------------------------
 ;;; jedi, epc, elpy, flycheck : Python (unchecked)
@@ -215,22 +103,6 @@
     (flymake-mode t)))
 
 (add-hook 'python-mode-hook 'my-python-mode)
-
-;;; --------------------------------------------------------------------------------
-;;; config : Other Languages
-;;; --------------------------------------------------------------------------------
-
-;;; ---------------------------------------------------------------------------
-;;; prolog-mode : Prolog (checked)
-;;; ---------------------------------------------------------------------------
-(add-to-list 'auto-mode-alist '("\\.pl$" . prolog-mode))
-(setq prolog-program-name "swipl")
-(setq prolog-consult-string "[user].\n")
-
-;;; ---------------------------------------------------------------------------
-;;; vimrc-mode : vimrc編集用 (checked)
-;;; ---------------------------------------------------------------------------
-(use-package-with-report vimrc-mode)
 
 ;;; ---------------------------------------------------------------------------
 ;;; web-mode : web編集用

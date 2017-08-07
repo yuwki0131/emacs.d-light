@@ -42,15 +42,6 @@
   (add-hook 'lua-mode-hook 'highlight-operators-mode))
 
 ;;; ---------------------------------------------------------------------------
-;;; highlight quoted : シンボルハイライト(lisp用)
-;;; ---------------------------------------------------------------------------
-(use-package-with-report highlight-quoted
-  :init
-  (add-hook 'lisp-mode-hook 'highlight-quoted-mode)
-  '(set-face-attribute 'highlight-quoted-quote nil
-                       :inherit 'highlight-quoted-symbol))
-
-;;; ---------------------------------------------------------------------------
 ;;; flymake : 文法チェッカ
 ;;; ---------------------------------------------------------------------------
 (use-package-with-report flycheck)

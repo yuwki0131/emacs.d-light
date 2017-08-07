@@ -199,13 +199,11 @@
   (insert
    (concat
     ;; fortune message
-    (ignore-errors
-      (shell-command-to-string "fortune | rev | cowsay -f ghostbusters" ))
     (comment-out-message
      (concat-interpose-newline
       (list
        (concat-interpose-newline
-        '("hello world, emacs !!" "('･_･`) ↓" "reports in loading init.el"))
+        '("hello world, emacs !! ↓ reports in loading init.el"))
        (report-failed-packages)
        (report-gsskey)))))))
 

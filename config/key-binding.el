@@ -191,18 +191,6 @@
 (gssk-explain-function "英和辞典(要辞書設定)")
 (gssk-bind "C-z d" 'search-dictionary-e2j)
 
-(gssk-subcategory "実行")
-(gssk-explain-function "現在のディレクトリのxxx.sh実行")
-(gssk-bind "C-z e" 'execute-current-shell-script)
-
-(gssk-subcategory "ブログ")
-(gssk-explain-function "新しいブログポストを作成")
-(gssk-bind "C-z b n" 'quickblog-create-new-post)
-(gssk-explain-function "既存のCryogen下のブログポスト一覧を表示")
-(gssk-bind "C-z b o" 'quickblog-open-default-file)
-(gssk-explain-function "Cryogenをローカルで実行")
-(gssk-bind "C-z b r" 'quickblog-run-local-server)
-
 ;;; ---------------------------------------------------------------------------
 ;;; A prefix (to edit somewhat)
 ;;; ---------------------------------------------------------------------------
@@ -261,9 +249,6 @@
 (gssk-explain-function "後ろ向きな単語削除")
 (gssk-bind "C-a C-h" 'backward-kill-word)
 
-(gssk-explain-function "行のマージ(インデント用などの空白削除) <br/> (不要かも)")
-(gssk-bind "C-a C-f" 'merge2lines)
-
 (gssk-explain-function "周囲の空白を削除し、単一の空白にする")
 (gssk-bind "C-a C-i" 'just-one-space)
 
@@ -271,9 +256,6 @@
 
 (gssk-explain-function "旧(C-q) 引用付き挿入(置換等に使用)")
 (gssk-bind "C-a C-q" 'quoted-insert)
-
-(gssk-explain-function "(´・_・`)を挿入")
-(gssk-bind "C-a C-s" 'insert-shoborn)
 
 (gssk-explain-function "現在時刻挿入")
 (gssk-bind "C-a C-d" 'insert-date-normal)
